@@ -20,7 +20,13 @@ body {
   font-size: 12px;
   text-transform: uppercase;
 }
-
+.menu button{
+  background: none;
+}
+.mobile-menu button{
+  background:none;
+  padding: 10px;
+}
 .mobile-menu .btn{
     background-color: black;
     margin-right: 20px;
@@ -36,7 +42,8 @@ body {
     margin: 20px 10px;
 }
 .navbar {
-  position: sticky;
+  width: 100%;
+  position: fixed;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -46,6 +53,9 @@ body {
   box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
 }
 .hero{
+  animation: animate__fadeInRightBig; /* referring directly to the animation's @keyframe declaration */
+  animation-duration: 2s;
+  
   display: flex;
   justify-content: space-between;
   gap: 80px;
@@ -106,7 +116,7 @@ body {
 .mobile-menu {
   display: none;
   flex-direction: column;
-  background-color: rgb(190, 180, 180);
+  background-color: rgb(255, 247, 247);
   color: blue;
   position: absolute;
   top: px;
@@ -136,5 +146,17 @@ body {
 
   .mobile-menu.active {
     display: flex;
+  }
+  .con1 p{
+    font-size: 13px;
+  }
+}
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  /* Your CSS styles for medium screens go here */
+  .navbar{
+    position: fixed;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
   }
 }
