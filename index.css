@@ -273,8 +273,27 @@ body {
  flex-direction: column;
  flex-wrap: nowrap; */
 }
+.product-card h3{
+  font-size: 25px;
+}
 .product-card p{
 font-size: 13px;  
+}
+.product-card button{
+  background-color: black;
+  margin-right: 20px;
+  padding: 15px;
+  border-radius: 20px;
+  color: whitesmoke;
+  
+  font-size: 12px;
+  text-transform: uppercase;
+}
+.product-card button:hover{
+background-color: #EBF2FA;
+color: black;
+box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+transition: ease-in 2s;
 }
 .product-card img{
   width: 70%;
@@ -283,4 +302,19 @@ font-size: 13px;
 }
 .hero-section button {
   animation: bounce 1s infinite;
+}
+.categories{
+  display: flex;
+  flex-direction: row;
+  gap: 3rem;
+  justify-content: center;
+  padding: 20px;
+}
+.categories button{
+  border-radius: 30px;
+  font-size: 13px;
+  background-color: #EBF2FA;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+color:  black;
+padding:20px;
 }
