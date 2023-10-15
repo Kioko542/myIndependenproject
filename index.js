@@ -1,5 +1,4 @@
 document.addEventListener('DOMContentLoaded', function () {
-  // ... (Your existing code for mobile menu toggle)
 
   const categoriesContainer = document.querySelector('.categories');
   const productsContainer = document.querySelector('.products');
@@ -7,7 +6,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
   let cart = [];
 
-  // Function to fetch and display products for a specific category
   function fetchAndDisplayProducts(category) {
     fetch(`https://fakestoreapi.com/products/category/${category}`)
       .then(response => response.json())
@@ -19,7 +17,6 @@ document.addEventListener('DOMContentLoaded', function () {
       });
   }
 
-  // Display product categories
   function displayCategories(categories) {
     categoriesContainer.innerHTML = '';
     categories.forEach(category => {
@@ -77,7 +74,6 @@ document.addEventListener('DOMContentLoaded', function () {
     updateCartDisplay();
   }
 
-  // Update the cart display
   function updateCartDisplay() {
     cartItemsContainer.innerHTML = '';
     cart.forEach(item => {
@@ -90,10 +86,8 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
-  // Initial fetch and display for a default category (e.g., 'electronics')
   fetchAndDisplayProducts('electronics');
 
-  // Fetch and display categories
   fetch('https://fakestoreapi.com/products/categories')
     .then(response => response.json())
     .then(data => {
@@ -103,3 +97,58 @@ document.addEventListener('DOMContentLoaded', function () {
       console.error('Failed to fetch product categories:', error);
     });
 });
+
+function addAddToCartListeners() {
+  const addToCartButtons = document.querySelectorAll('.add-to-cart-button');
+  addToCartButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      const productId = button.getAttribute('data-id');
+      addToCart(productId);
+    });
+  });
+}
+
+function addToCart(productId) {
+  const productCard = productsContainer.querySelector(`.product-card[data-id="${productId}"]`);
+  const title = productCard.querySelector('h3').innerText;
+  const price = parseFloat(productCard.querySelector('p').innerText.split('$')[1]);
+  const quantity = parseInt(productCard.querySelector('.quantity').value);
+  const color = productCard.querySelector('.color').value;
+
+  const cartItem = {
+    id: productId,
+    title,
+    price,
+    quantity,
+    color,
+  };
+
+  cart.push(cartItem);
+  updateCartDisplay();
+}
+
+function updateCartDisplay() {
+  cartItemsContainer.innerHTML = '';
+  cart.forEach(item => {
+    const cartItem = document.createElement('li');
+    cartItem.innerHTML = `
+      <p>${item.title} (Color: ${item.color}) - Quantity: ${item.quantity}</p>
+      <p>Total Price: $${item.price * item.quantity}</p>
+    `;
+    cartItemsContainer.appendChild(cartItem);
+  });
+}
+
+fetchAndDisplayProducts('electronics');
+
+fetch('https://fakestoreapi.com/products/categories')
+  .then(response => response.json())
+  .then(data => {
+    displayCategories(data);
+  })
+  .then(() => {
+    addAddToCartListeners();
+  })
+  .catch(error => {
+    console.error('Failed to fetch product categories:', error);
+  });
