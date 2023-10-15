@@ -1,29 +1,45 @@
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener("DOMContentLoaded", function () {
+  const emailInput = document.getElementById("email");
+  const subscribeButton = document.getElementById("subscribeButton");
+  const categoriesContainer = document.querySelector(".categories");
+  const productsContainer = document.querySelector(".products");
+  const cartItemsContainer = document.getElementById("cart-items");
 
-  const categoriesContainer = document.querySelector('.categories');
-  const productsContainer = document.querySelector('.products');
-  const cartItemsContainer = document.getElementById('cart-items');
+  subscribeButton.addEventListener("click", function () {
+    const email = emailInput.value.trim();
+    emailInput.value = "";
+    if (validateEmail(email)) {
+      alert(`Subscribed with email: ${email}`);
+    } else {
+      alert("Please enter a valid email address.");
+    }
+  });
+
+  function validateEmail(email) {
+    const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+    return emailRegex.test(email);
+  }
 
   let cart = [];
 
   function fetchAndDisplayProducts(category) {
     fetch(`https://fakestoreapi.com/products/category/${category}`)
-      .then(response => response.json())
-      .then(data => {
+      .then((response) => response.json())
+      .then((data) => {
         displayProducts(data);
         addAddToCartListeners(); // Add event listeners after products are displayed
       })
-      .catch(error => {
-        console.error('Failed to fetch products:', error);
+      .catch((error) => {
+        console.error("Failed to fetch products:", error);
       });
   }
 
   function displayCategories(categories) {
-    categoriesContainer.innerHTML = '';
-    categories.forEach(category => {
-      const categoryButton = document.createElement('button');
+    categoriesContainer.innerHTML = "";
+    categories.forEach((category) => {
+      const categoryButton = document.createElement("button");
       categoryButton.innerText = category;
-      categoryButton.addEventListener('click', () => {
+      categoryButton.addEventListener("click", () => {
         fetchAndDisplayProducts(category);
       });
       categoriesContainer.appendChild(categoryButton);
@@ -32,10 +48,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // Display products in the products container as cards
   function displayProducts(products) {
-    productsContainer.innerHTML = '';
-    products.forEach(product => {
-      const productCard = document.createElement('div');
-      productCard.classList.add('product-card');
+    productsContainer.innerHTML = "";
+    products.forEach((product) => {
+      const productCard = document.createElement("div");
+      productCard.classList.add("product-card");
       productCard.innerHTML = `
         <img src="${product.image}" alt="${product.title}">
         <h3>${product.title}</h3>
@@ -57,11 +73,15 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // Add a product to the cart
   function addToCart(productId) {
-    const productCard = productsContainer.querySelector(`.product-card[data-id="${productId}`);
-    const title = productCard.querySelector('h3').innerText;
-    const price = parseFloat(productCard.querySelector('p').innerText.split('$')[1]);
-    const quantity = parseInt(productCard.querySelector('.quantity').value);
-    const color = productCard.querySelector('.color').value;
+    const productCard = productsContainer.querySelector(
+      `.product-card[data-id="${productId}`
+    );
+    const title = productCard.querySelector("h3").innerText;
+    const price = parseFloat(
+      productCard.querySelector("p").innerText.split("$")[1]
+    );
+    const quantity = parseInt(productCard.querySelector(".quantity").value);
+    const color = productCard.querySelector(".color").value;
 
     const cartItem = {
       id: productId,
@@ -76,9 +96,9 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   function updateCartDisplay() {
-    cartItemsContainer.innerHTML = '';
-    cart.forEach(item => {
-      const cartItem = document.createElement('li');
+    cartItemsContainer.innerHTML = "";
+    cart.forEach((item) => {
+      const cartItem = document.createElement("li");
       cartItem.innerHTML = `
         <p>${item.title} (Color: ${item.color}) - Quantity: ${item.quantity}</p>
         <p>Total Price: $${item.price * item.quantity}</p>
@@ -88,23 +108,23 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   function addAddToCartListeners() {
-    const addToCartButtons = document.querySelectorAll('.add-to-cart-button');
-    addToCartButtons.forEach(button => {
-      button.addEventListener('click', () => {
-        const productId = button.getAttribute('data-id');
+    const addToCartButtons = document.querySelectorAll(".add-to-cart-button");
+    addToCartButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        const productId = button.getAttribute("data-id");
         addToCart(productId);
       });
     });
   }
 
-  fetchAndDisplayProducts('electronics');
+  fetchAndDisplayProducts("electronics");
 
-  fetch('https://fakestoreapi.com/products/categories')
-    .then(response => response.json())
-    .then(data => {
+  fetch("https://fakestoreapi.com/products/categories")
+    .then((response) => response.json())
+    .then((data) => {
       displayCategories(data);
     })
-    .catch(error => {
-      console.error('Failed to fetch product categories:', error);
+    .catch((error) => {
+      console.error("Failed to fetch product categories:", error);
     });
 });
