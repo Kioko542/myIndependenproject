@@ -116,10 +116,12 @@ body {
   width: 100%;
   padding: 10px 20px;
 }
-
+.navbar-nav  li{
+  padding: 20px;
+}
 /* Logo styles */
-.logo {
-  font-size: 24px;
+.navbar-brand {
+  font-size: 34px;
   font-weight: bold;
   padding: 0 30px;
   font-family: 'Pacifico', cursive;
@@ -144,6 +146,59 @@ body {
   padding: 0 20px;
 }
 
+.custom-navbar {
+  background-color: #333;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.custom-brand {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.custom-menu {
+  list-style: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+.nav{
+  display: flex;
+  justify-content: space-between;
+}
+.custom-menu li {
+  margin-right: 20px;
+}
+
+.custom-menu a {
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+}
+
+.custom-menu-toggle {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.custom-bar {
+  background-color: white;
+  height: 3px;
+  width: 30px;
+  margin: 3px 0;
+  transition: 0.4s;
+}
 /* Mobile menu styles */
 .mobile-menu {
   display: none;
@@ -244,6 +299,14 @@ body {
   padding: 10px 20px;
   width: 10%;
 }
+.mobile-menu {
+  display: none;
+}
+
+.mobile-menu.open {
+  display: block;
+}
+
 .newsletter{
   display: flex;
   justify-content: space-between;
@@ -263,7 +326,7 @@ body {
 }
 .input input{
   padding: 10px;
-  outline none
+  outline: none;
 }
 #subscribeButton{
   background-color: blue;
@@ -276,7 +339,10 @@ body {
   .menu {
     display: none;
   }
-
+.mobile-menu{
+  display: flex;
+  flex-direction: column;
+}
   .toggle-button {
     display: block;
   }

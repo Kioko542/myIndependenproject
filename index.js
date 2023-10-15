@@ -127,4 +127,7 @@ document.addEventListener("DOMContentLoaded", function () {
     .catch((error) => {
       console.error("Failed to fetch product categories:", error);
     });
+
+    
+  
 });

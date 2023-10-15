@@ -29,11 +29,11 @@
   </head>
   <body >
    <!-- navbar -->
-    <nav class="navbar">
+    <!-- <nav class="navbar">
       <div class="logo logo animated animate__fadeIn">soko-soko</div>
       <div class="menu">
           <a href="#">Home</a>
-          <a href="#shop">shop</a>
+          <a href="#">shop</a>
           <a href="#">blog</a>
           <a href="#">Contact</a>
           <button > <i class="fa-solid fa-bag-shopping fa-2xl"></i></button>
@@ -43,14 +43,47 @@
       </div>
   </nav>
 
-  <div class="mobile-menu" id="mobile-menu">
+  <div class="mobile-menu" >
       <a href="#">Home</a>
       <a href="#">Shop</a>
       <a href="#">Blog</a>
       <a href="#">Contact</a>
       <button > <i class="fa-solid fa-bag-shopping fa-2xl"></i>Cart</button>
 
-  </div>
+  </div> -->
+  
+  <div class="nav">
+
+    <nav class="navbar navbar-expand-lg bg-body-tertiary d-flex fixed-top">
+      <div class="container-fluid">
+          <a class="navbar-brand" href="#">Sokosoko</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+              <ul class="navbar-nav ml-auto px-4 d-flex align-items-center">
+                  <li class="nav-item">
+                      <a class="nav-link active" aria-current="page" href="#">Home</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link" href="#sh">Shops</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link" href="#">Blogs</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#news">newsletter</a>
+                </li>
+                  <li class="nav-item">
+                      <a class="nav-link" href="#">Contacts</a>
+                  </li>
+              </ul>
+          </div>
+          <div class="d-none d-lg-block">
+              <!-- Cart icon (visible on large screens only) -->
+              <i class="fa-solid fa-bag-shopping fa-2xl"></i>          </div>
+  </nav>
+</div>
 
   <!-- hero section -->
 <div class=" hero animated animate__fadeIn">
@@ -67,7 +100,8 @@
 </div>
 
 <!-- shop -->
-<div id="shop">
+<div id="sh" class="shop"></div>
+
 <div class="categories">
 </div>
 <div class="products">
@@ -78,10 +112,9 @@
   </ul>
 </div>
 
-</div>
 
 <!-- newsletter -->
-<div class="newsletter">
+<div  id="news" class="newsletter">
   <h1>Sign up for our  news letter</h1>
   <div class="input">
     <label for="email">Enter Email</label>
