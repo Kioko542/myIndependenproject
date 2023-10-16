@@ -185,10 +185,14 @@ body {
   padding: 0 30px;
 }
 .blog-post img{
-  w
+  width: 100%;
+  height: 50vh;
+  object-fit: cover;
+  object-position: center;
 }
 h2{
   text-align: center;
+  padding: 30px 0;
 }
 .custom-menu li {
   margin-right: 20px;
@@ -348,6 +352,9 @@ h2{
   padding: 10px;
   letter-spacing: 5px;
 }
+.blog-post p{
+  font-size: 13px;
+}
 /* Responsive styles for smaller screens (up to 768px) */
 @media (max-width: 768px) {
   .menu {
@@ -365,6 +372,10 @@ h2{
     display: flex;
     flex-direction: column;
   }
+.blog-s{
+  display: flex;
+  flex-direction: column;
+}
 
   .product-card {
     width: 80%;
