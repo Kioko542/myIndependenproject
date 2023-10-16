@@ -176,6 +176,20 @@ body {
   display: flex;
   justify-content: space-between;
 }
+.blog-s{
+  display: flex;
+  gap: 4rem;
+  padding: 30px;
+}
+.blog-post{
+  padding: 0 30px;
+}
+.blog-post img{
+  w
+}
+h2{
+  text-align: center;
+}
 .custom-menu li {
   margin-right: 20px;
 }
