@@ -1,6 +1,8 @@
 # myIndependenproject
 soko soko Shopping Website
 
+Author:Emmanuel Kioko
+
 Welcome to the Shopping Website for Fake Stores! This website is a demonstration of an e-commerce platform that displays a selection of products for customers to explore and purchase using the Fake Store Public API. This README file describes the project, its features, and how to set it up for use.
 Table of Contents
 

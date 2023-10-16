@@ -112,6 +112,7 @@ body {
   padding: 15px;
   font-size: 12px;
   letter-spacing: 0.5rem;
+  color: black;
 }
 
 /* Styling for content section 2 */
@@ -422,6 +423,9 @@ margin: 30px 20px;
   display: flex;
   flex-direction: column;
 }
+.shop{
+  display: none;
+}
 
   .product-card {
     width: 80%;
@@ -464,7 +468,9 @@ width: 70%;
 border: 1px solid black;
 color: black;
 padding: 20px 0; */
-
+.navbar-toggler{
+  margin-left: 40px;
+}
 #contact-form {
   max-width: 400px;
   margin: 0 auto;
@@ -472,6 +478,9 @@ padding: 20px 0; */
   padding: 20px;
   border-radius: 5px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+.shop{
+  padding-right: 30px;
 }
  h1{
   text-align: center;
@@ -507,6 +516,9 @@ button:hover {
   .newsletter{
     display: flex;
     flex-direction: column;
+  }
+  .shop{
+    display: none;
   }
 }
 @keyframes fadeIn {
