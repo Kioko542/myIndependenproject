@@ -128,6 +128,20 @@ document.addEventListener("DOMContentLoaded", function () {
       console.error("Failed to fetch product categories:", error);
     });
 
-    
+    const form = document.getElementById("contact");
+        form.addEventListener("submit", function (e) {
+            e.preventDefault();
+            const name = document.getElementById("name").value;
+            const email = document.getElementById("email").value;
+            const message = document.getElementById("message").value;
+email.value=""
+            if (name === "" || email === "" || message === "") {
+                alert("Please fill in all fields.");
+            } else {
+                alert("Thank you for your message, " + name + "!");
+                // You can also send the form data to a server using AJAX or fetch here.
+                form.reset();
+            }
+        });
   
 });
